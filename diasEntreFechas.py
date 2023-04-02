@@ -2,37 +2,36 @@ from datetime import date
 
 
 def diasEntreFechas():
-    x = int(input("Dia inicial: "))
-    y = int(input("Mes inicial: "))
-    z = int(input("Año inicial: "))
-    f_date = date(z, y, x)
-    print()
-    x1 = int(input("Dia final: "))
-    y1 = int(input("Mes final: "))
-    z1 = int(input("Año final: "))
-    l_date = date(z1, y1, x1)
-    delta = l_date - f_date
+    f_day   = int(input("Dia inicial: "))
+    f_month = int(input("Mes inicial: "))
+    f_year  = int(input("Año inicial: \n"))
+    first_date = date(f_year, f_month, f_day)
 
-    print()
-    print(f"Hay {delta.days} dias entre las 2 fechas")
-    print()
+    l_day   = int(input("Dia final: "))
+    l_month = int(input("Mes final: "))
+    l_year  = int(input("Año final: "))
+    last_date = date(l_year, l_month, l_day)
+    delta = last_date - first_date
+
+    print(f"\nHay {delta.days} dias entre las 2 fechas\n")
+
 
 
 def diasPara():
-    x = date.today().day
-    y = date.today().month
-    z = date.today().year
-    f_date = date(z, y, x)
 
-    x1 = int(input("Dia final: "))
-    y1 = int(input("Mes final: "))
-    z1 = int(input("Año final: "))
-    l_date = date(z1, y1, x1)
-    delta = l_date - f_date
+    today = date(date.today().year, 
+                  date.today().month, 
+                  date.today().day)
 
-    print()
-    print(f"Faltan {delta.days} dias para la fecha!")
-    print()
+    day   = int(input("Dia final: "))
+    month = int(input("Mes final: "))
+    year  = int(input("Año final: "))
+
+    desired_date = date(year, month, day)
+    
+    delta = desired_date - today
+
+    print(f"\nFaltan {delta.days} dias para la fecha!\n")
 
 while True:
     print("Bienvenido")
@@ -41,10 +40,10 @@ while True:
     print("Dias para ------------ 2")
     print("Salir ---------------- 3")
 
-    x = int(input("Opcion: "))
-    if x == 1:
+    op = int(input("Opcion: "))
+    if op == 1:
         diasEntreFechas()
-    elif x == 2:
+    elif op == 2:
         diasPara()
     else:
         exit()
