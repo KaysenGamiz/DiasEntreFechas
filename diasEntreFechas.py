@@ -1,5 +1,4 @@
-from datetime import date
-
+from datetime import date, timedelta
 
 def diasEntreFechas():
     f_day   = int(input("Dia inicial: "))
@@ -16,12 +15,8 @@ def diasEntreFechas():
     print(f"\nHay {delta.days} dias entre las 2 fechas\n")
 
 
-
 def diasPara():
-
-    today = date(date.today().year, 
-                  date.today().month, 
-                  date.today().day)
+    today = date.today()
 
     day   = int(input("Dia final: "))
     month = int(input("Mes final: "))
@@ -33,18 +28,30 @@ def diasPara():
 
     print(f"\nFaltan {delta.days} dias para la fecha!\n")
 
+
+def sumarDiasDesdeHoy():
+    today = date.today()
+    dias = int(input("¿Cuántos días deseas sumar a la fecha de hoy?: "))
+
+    nueva_fecha = today + timedelta(days=dias)
+
+    print(f"\nLa fecha después de {dias} días será: {nueva_fecha.strftime('%d/%m/%Y')}\n")
+
+
 while True:
     print("Bienvenido")
-    print("¿Que opción deseas?")
-    print("Dias entre fechas ---- 1")
-    print("Dias para ------------ 2")
-    print("Salir ---------------- 3")
+    print("¿Qué opción deseas?")
+    print("1. Días entre fechas")
+    print("2. Días para una fecha")
+    print("3. Sumar días a partir de hoy")
+    print("4. Salir")
 
-    op = int(input("Opcion: "))
+    op = int(input("Opción: "))
     if op == 1:
         diasEntreFechas()
     elif op == 2:
         diasPara()
+    elif op == 3:
+        sumarDiasDesdeHoy()
     else:
         exit()
-
