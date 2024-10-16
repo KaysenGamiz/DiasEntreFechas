@@ -38,13 +38,27 @@ def sumarDiasDesdeHoy():
     print(f"\nLa fecha después de {dias} días será: {nueva_fecha.strftime('%d/%m/%Y')}\n")
 
 
+def sumarDiasDesdeFecha():
+    f_day   = int(input("Dia inicial: "))
+    f_month = int(input("Mes inicial: "))
+    f_year  = int(input("Año inicial: "))
+    fecha_inicial = date(f_year, f_month, f_day)
+
+    dias = int(input("\n¿Cuántos días deseas sumar?: "))
+
+    nueva_fecha = fecha_inicial + timedelta(days=dias)
+
+    print(f"\nLa fecha después de {dias} días será: {nueva_fecha.strftime('%d/%m/%Y')}\n")
+
+
 while True:
     print("Bienvenido")
     print("¿Qué opción deseas?")
     print("1. Días entre fechas")
     print("2. Días para una fecha")
     print("3. Sumar días a partir de hoy")
-    print("4. Salir")
+    print("4. Sumar días a partir de una fecha")
+    print("5. Salir")
 
     op = int(input("Opción: "))
     if op == 1:
@@ -53,5 +67,7 @@ while True:
         diasPara()
     elif op == 3:
         sumarDiasDesdeHoy()
+    elif op == 4:
+        sumarDiasDesdeFecha()
     else:
         exit()
